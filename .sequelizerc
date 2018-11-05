@@ -1,0 +1,14 @@
+const path = require('path');
+
+const dotenv = require('dotenv');
+/**
+ * Load environment variables from .env file, where API keys and passwords are configured.
+ */
+dotenv.load({ path: '.env' });
+
+module.exports = {
+  "config": path.resolve('./server/config', 'config.js'),
+  "models-path": path.resolve('./server/models'),
+  "seeders-path": path.resolve('./server/seeders'),
+  "migrations-path": path.resolve('./server/migrations')
+};
