@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Order_list = sequelize.define('Order_list', {
     delivery: DataTypes.DATE,
-    total: DataTypes.INTEGER
+    total: DataTypes.INTEGER,
+    status: DataTypes.INTEGER
   }, {});
   Order_list.associate = (models) => {
     // associations can be defined here
