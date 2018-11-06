@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   Dish.associate = (models) => {
     // associations can be defined here
     Dish.belongsTo(models.Order, {
-      foreignKey: 'orderId',
+      foreignKey: 'dishId',
       onDelete: 'CASCADE',
     });
   };
