@@ -9,7 +9,7 @@ module.exports = {
       .create({
         delivery:req.body.delivery,
         total:req.body.total,
-        status:1                  //Ordered
+        status:1,                  //Ordered
         userId:req.params.userId
       })
       .then(orderList => {
@@ -22,7 +22,7 @@ module.exports = {
                 dishId: dish.id,
                 orderListId: orderList.id
               })
-              .then(order => res.status(201).send(orderList))
+              .then(order => res.status(200).send(orderList))
               .catch(error => res.status(400).send(error))
           })
       })

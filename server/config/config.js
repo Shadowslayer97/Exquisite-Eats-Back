@@ -10,7 +10,7 @@ module.exports = {
   "test": {
     "username": process.env.DATABASE_USER,
     "password": process.env.DATABASE_PASSWORD,
-    "database": "exquisite-eats-test",
+    "database": process.env.DATABASE_NAME,
     "host": process.env.DATABASE_HOST,
     "port":5432,
     "dialect": "postgres"

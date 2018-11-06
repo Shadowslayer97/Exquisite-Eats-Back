@@ -9,7 +9,7 @@ module.exports = {
         desciption:req.body.description,
         hq:req.body.hq
       })
-      .then(dish => res.status(201).send(dish))
+      .then(dish => res.status(200).send(dish))
       .catch(error => res.status(400).send(error));
   },
   list(req, res) {
