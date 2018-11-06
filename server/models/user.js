@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = (models) => {
     // associations can be defined here
-    User.belongsTo(models.Order_list, {
+    User.hasMany(models.Order_list, {
       foreignKey: 'userId',
-      onDelete: 'CASCADE',
+      as:'userOrders',
     });
   };
   return User;
