@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         references : {
           model: 'Dishes',
-          key: 'id'
+          key: 'id',
+          as: 'orderDishes'
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
@@ -22,7 +23,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         references : {
           model: 'Order_lists',
-          key: 'id'
+          key: 'id',
+          as: 'orderListItems'
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
@@ -33,7 +35,7 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     queryInterface.removeColumn(
       'Orders',
-      'orderId'
+      'dishId'
     );
     queryInterface.removeColumn(
       'Orders',
