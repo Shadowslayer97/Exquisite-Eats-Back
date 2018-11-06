@@ -5,13 +5,15 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Order.associate = (models) => {
     // associations can be defined here
-    Order.hasMany(models.Dish, {
-      foreignKey: 'orderId',
+    Order.belongsTo(models.Dish, {
+      foreignKey: 'dishId',
       as: 'orderDishes',
+      onDelete: 'CASCADE',
     });
-    Order.hasMany(models.Order_list, {
+    Order.belongsTo(models.Order_list, {
       foreignKey: 'orderListId',
       as: 'orderListItems',
+      onDelete: 'CASCADE',
     });
   };
   return Order;
