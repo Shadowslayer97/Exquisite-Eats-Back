@@ -7,7 +7,7 @@ module.exports = {
   create(req, res) {
     OrderList
       .create({
-        delivery:req.body.delivery,
+        delivery:req.body.delivery, //in put call?
         total:req.body.total,
         status:1,                  //Ordered
         userId:req.params.userId

@@ -1,4 +1,5 @@
 const Dish = require('../models').Dish;
+const DishFilter = require('../constants/dish');
 
 module.exports = {
   create(req, res) {
@@ -14,8 +15,12 @@ module.exports = {
   },
   list(req, res) {
     return Dish
-      .all()
-      .then(users => res.status(200).send(users))
+      .findAll({
+        where:DishFilter[req.query.filterId].filter
+      })
+      .then(users => {
+        res.status(200).send(users)
+      } )
       .catch(error => res.status(400).send(error))
   }
 };
