@@ -4,7 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     rate: DataTypes.INTEGER,
     description: DataTypes.TEXT,
-    hq: DataTypes.INTEGER
+    hq: DataTypes.INTEGER,
+    image: DataTypes.TEXT,
+    type: DataTypes.STRING
   }, {});
   Dish.associate = (models) => {
     // associations can be defined here
