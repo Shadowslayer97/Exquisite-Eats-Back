@@ -14,6 +14,8 @@ module.exports = (app) => {
   app.post('/api/dishes', dishesController.create);
 
   app.get('/api/order/list', orderListController.list);
+  app.get('/api/order/list/:userId', orderListController.listUserOrders);
   app.post('/api/order/list/:userId', orderListController.create);
+  app.put('/api/order/list/:orderListId', orderListController.update);
   // app.post('/api/order/list', orderListController.create);
 };

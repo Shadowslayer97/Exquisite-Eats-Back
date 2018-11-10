@@ -3,6 +3,8 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const cron = require('node-cron');
+const updateStatusCron = require('./server/crons').updateStatus;
 
 dotenv.load({ path: '.env' });
 // Set up the express app
@@ -15,6 +17,11 @@ app.use(logger('dev'));
 // Parse incoming requests data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+cron.schedule("* * * * *",() => {
+  console.log("Cron task => updateStatus");
+  updateStatusCron();
+})
 
 // Require our routes into the application.
 require('./server/routes')(app);

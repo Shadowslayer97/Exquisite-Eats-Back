@@ -44,11 +44,38 @@ module.exports = {
           model: User,
           as:'userOrders',
         }],
+        where: req.query
       })
       .then(orderLists => res.status(200).send(orderLists))
       .catch(error => {
           console.log(error);
           res.status(400).send(error)
       })
+  },
+  listUserOrders(req, res) {
+    return OrderList
+      .findAll({
+        include: [{
+          model: User,
+          as:'userOrders',
+          where: {
+            id:req.params.userId
+          }
+        }],
+      })
+      .then(orderLists => res.status(200).send(orderLists))
+      .catch(error => {
+          console.log(error);
+          res.status(400).send(error)
+      })
+  },
+  update(req, res) {
+    return OrderList
+      .update(
+        req.body,
+        { where: {id:req.query.orderListId}}
+      )
+      .then(result => res.status(200).send(result))
+      .catch(error => res.status(400).send(error))
   }
 };
