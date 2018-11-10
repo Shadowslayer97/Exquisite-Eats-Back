@@ -68,6 +68,14 @@ module.exports = {
           console.log(error);
           res.status(400).send(error)
       })
-
+  },
+  update(req, res) {
+    return OrderList
+      .update(
+        req.body,
+        { where: {id:req.query.orderListId}}
+      )
+      .then(result => res.status(200).send(result))
+      .catch(error => res.status(400).send(error))
   }
 };
