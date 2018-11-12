@@ -15,7 +15,7 @@ describe('/GET order list', () => {
         .get('/api/order/list')
         .end((err, res) => {
             res.should.have.status(200);
-            res.body.should.be.a('object');
+            res.body.should.be.a('array');
             done();
         });
     });
@@ -36,7 +36,7 @@ describe('/POST order list', () => {
 
         chai.request(app)
         .post('/api/order/list/1')
-        .send(user)
+        .send(orderList)
         .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');

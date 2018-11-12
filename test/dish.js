@@ -12,10 +12,10 @@ chai.use(chaiHttp)
 describe('/GET dish', () => {
     it('it should Get all dishes', (done) => {
         chai.request(app)
-        .get('/api/dishes')
+        .get('/api/dishes?filterId=1')
         .end((err, res) => {
             res.should.have.status(200);
-            res.body.should.be.a('object');
+            res.body.should.be.a('array');
             done();
         });
     });

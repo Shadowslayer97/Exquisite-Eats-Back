@@ -15,7 +15,7 @@ describe('/GET user', () => {
         .get('/api/users')
         .end((err, res) => {
             res.should.have.status(200);
-            res.body.should.be.a('object');
+            res.body.should.be.a('array');
             done();
         });
     });
