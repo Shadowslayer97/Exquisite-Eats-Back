@@ -22,9 +22,10 @@ module.exports = {
                 dishId: dish.id,
                 orderListId: orderList.id
               })
-              .then(order => res.status(200).send(orderList))
+              .then(order => {})
               .catch(error => res.status(400).send(error))
           })
+          res.status(200).send({"result":"success"});
       })
       .catch(error => {
         console.log(error);
